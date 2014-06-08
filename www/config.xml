@@ -3,13 +3,12 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "no.appfabrikken.vinogvinyl"
+        id        = "no.appfabrikken.valpolicella"
         version   = "1.0.0">
 
-    <name>Vin og vinyl</name>
+    <name>20 spørsmål</name>
 
     <description>
-        #vinogvinyl
     </description>
 
     <author href="http://sondresallaup.com" email="support@sondresallaup.com">
