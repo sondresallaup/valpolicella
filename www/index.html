@@ -13,7 +13,20 @@
 </div><br><br><br><br><br><br>
 
 <a href="main.html"><img src="img/FBloginbutton.png" width="200"></img></a>
-   
+
+<button onclick="login()">Login</button>
+
+
+
+<!-- cordova -->
+<script src="phongap.js"></script>
+<!-- cordova facebook plugin -->
+<script src="cdv-plugin-fb-connect.js"></script>
+<!-- facebook js sdk -->
+<script src="facebook-js-sdk.js"></script>
+
+
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>        
 <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 <script>
@@ -21,6 +34,20 @@ function goBack()
   {
   window.history.back()
   }
+    
+    
+function login() {
+                FB.login(
+                         function(response) {
+                         if (response.session) {
+                         alert('logged in');
+                         } else {
+                         alert('not logged in');
+                         }
+                         },
+                         { scope: "email" }
+                         );
+            }
 </script> 
         
 </body>
