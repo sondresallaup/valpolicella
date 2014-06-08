@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="resources/html.js"></script>
+        <script src="resources/strings.js"></script>
+        <script>document.write(HTML_HEAD);</script>
+    </head>
+    <body>
+
+<script>document.write(HTML_TITLE_DESIGN);</script>
+    <a class="button button-icon icon ion-navicon" href="settings.html"></a>
+  <h1 class="title"><script>document.write(APP_NAME);</script></h1>
+</div><br><br>
+<! Your turn-card >
+<script>document.write(HTML_CARD_HEADER);
+document.write(YOUR_TURN);
+document.write(HTML_CARD_BODY);
+document.write("<a>Nicholas</a>");
+document.write("</div></div>");  
+</script>
+    
+<! New game-card >
+<script>document.write(HTML_CARD_HEADER);
+document.write(NEW_GAME);
+document.write(HTML_CARD_BODY);
+document.write(NEW_GAME_FRIEND + '<br>' + NEW_GAME_RANDOM);
+document.write("</div></div>");  
+</script>
+    
+<! Waiting game-card >
+<script>document.write(HTML_CARD_HEADER);
+document.write(WAITING_GAME);
+document.write(HTML_CARD_BODY);
+document.write('Nicholas');
+document.write("</div></div>");  
+</script>
+        
+        
+<script src="http://code.jquery.com/jquery-latest.js"></script>        
+<script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+<script>
+function goBack()
+  {
+  window.history.back()
+  }
+</script> 
+        
+</body>
+</html>

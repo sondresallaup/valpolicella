@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "no.appfabrikken.vinogvinyl"
+        version   = "1.0.0">
+
+    <name>Vin og vinyl</name>
+
+    <description>
+        #vinogvinyl
+    </description>
+
+    <author href="http://sondresallaup.com" email="support@sondresallaup.com">
+        Den lille app-fabrikken
+    </author>
+    <icon src="img/icon.png" />
+    
+    <preference name="android-targetSdkVersion" value="12" />
+    <preference name="orientation" value="portrait" />
+
+    <preference name="phonegap-version" value="3.3.0" /> 
+    <preference name="fullscreen" value="false" />
+    
+    
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+
+    <gap:splash src="img/splash.png" gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="img/splash.png" gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="img/splash.png" gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="img/splash.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="img/splash.png" gap:platform="android" gap:density="xxhdpi" />
+</widget>
