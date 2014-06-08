@@ -24,6 +24,11 @@
     
     
     <feature name="http://api.phonegap.com/1.0/camera"/>
+    
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
+        <param name="APP_ID" value="232837086927657" />
+        <param name="APP_NAME" value="20 spørsmål" />
+    </gap:plugin>
 
     <gap:splash src="img/splash.png" gap:platform="android" gap:density="ldpi" />
     <gap:splash src="img/splash.png" gap:platform="android" gap:density="mdpi" />
