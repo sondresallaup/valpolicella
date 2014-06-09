@@ -1,5 +1,7 @@
 parseInitialize();
 
+checkIfLoggedIn();
+
 function checkIfLoggedIn(){
 	var currentUser = Parse.User.current();
 	if(!currentUser){
@@ -12,4 +14,3 @@ function getCurrentUser(){
     return currentUser;
 }
 
-checkIfLoggedIn();

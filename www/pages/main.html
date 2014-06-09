@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="appfabrikken.valpolicella">
     <head>
         <script src="../resources/html.js"></script>
         <script src="../resources/strings.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html; charset=UTF-8"><link href = "../css/ionic.css" rel = "stylesheet">
     </head>
-    <body>
+    <body ng-controller="PopupCtrl">
 
 <script>document.write(HTML_TITLE_DESIGN);</script>
     <a class="button button-icon icon ion-navicon" href="settings.html"></a>
@@ -15,7 +15,6 @@
 <script>document.write(HTML_CARD_HEADER);
 document.write(YOUR_TURN);
 document.write(HTML_CARD_BODY);
-document.write("<a>Nicholas</a>");
 document.write("</div></div>");  
 </script>
     
@@ -23,7 +22,7 @@ document.write("</div></div>");
 <script>document.write(HTML_CARD_HEADER);
 document.write(NEW_GAME);
 document.write(HTML_CARD_BODY);
-document.write(NEW_GAME_FRIEND + '<br>' + NEW_GAME_RANDOM);
+document.write('<a href="#" ng-click="showNewGamePrompt()">' + NEW_GAME_FRIEND + '</a>');
 document.write("</div></div>");  
 </script>
     
@@ -31,14 +30,16 @@ document.write("</div></div>");
 <script>document.write(HTML_CARD_HEADER);
 document.write(WAITING_GAME);
 document.write(HTML_CARD_BODY);
-document.write('Nicholas');
 document.write("</div></div>");  
 </script>
         
         
 <script src="http://code.jquery.com/jquery-latest.js"></script>        
 <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+<script src="../js/sallaup/parse.js"></script>
 <script src="../js/sallaup/userfunctions.js"></script>
+<script src="../js/ionic.bundle.js"></script>
+<script src="../js/prompt.js"></script>
 <script>
 function goBack()
   {

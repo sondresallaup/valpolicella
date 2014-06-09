@@ -6,8 +6,11 @@ var YOUR_TURN = "Din tur";
 var NEW_GAME = "Nytt spill";
 var WAITING_GAME = "Venter på spiller";
 
-var NEW_GAME_FRIEND = "Venn";
+var NEW_GAME_FRIEND = 'Venn';
 var NEW_GAME_RANDOM = "Tilfeldig";
+
+var USER_YOU_WANT_TO_PLAY_STRING = 'Bruker du vil spille med';
+
 
 var USERNAME_STRING = "Brukernavn";
 var PASSWORD_STRING = "Passord";
@@ -21,3 +24,8 @@ var FILL_EVERY_INPUT_STRING = "Vennligst fyll ut alle felt";
 var PASSWORDS_NOT_MATCH_STRING = "Passordene samsvarer ikke";
 var PASSWORD_TO_SHORT_STRING = "Passordet må minst 6 tegn";
 var LOGIN_ERROR_STRING = "Feil brukernavn og/eller passord";
+
+var SETTINGS = "Innstillinger";
+var LOG_OUT_STRING = "Logg ut";
+var APP_CREATED_BY = "Den lille app-fabrikken";
+var SINCE = "2014";

@@ -21,7 +21,7 @@ $("button#submit").click( function() {
 
 		Parse.User.logIn($("#username").val(), $("#password").val(), {
 		  success: function(user) {
-		    window.location = ('/pages/main.html');
+		    window.location = ('pages/main.html');
 		  },
 		  error: function(user, error) {
               document.getElementById("card").style.display = "block";

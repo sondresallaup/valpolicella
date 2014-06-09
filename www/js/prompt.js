@@ -1,4 +1,4 @@
-angular.module('appfabrikken.vinogvinyl', ['ionic'])
+angular.module('appfabrikken.valpolicella', ['ionic'])
 
       .controller('PopupCtrl', function($scope, $timeout, $q, $ionicPopup) {
           $scope.showPopup = function() {
@@ -56,26 +56,25 @@ angular.module('appfabrikken.vinogvinyl', ['ionic'])
               console.log('Your name is', res);
             });
           };
-          $scope.showPasswordPrompt = function() {
-                  if(localStorage.getItem('admin') == "true"){
-                    window.location.replace("admin.html");
-                  }
-             else{     
+          $scope.showNewGamePrompt = function() {    
             $ionicPopup.prompt({
-              title: 'Administratorpassord',
-              subTitle: 'Skriv inn ditt passord',
+              title: NEW_GAME,
+              subTitle: USER_YOU_WANT_TO_PLAY_STRING,
               inputType: 'password',
-              inputPlaceholder: 'Ditt passord'
+              inputPlaceholder: USERNAME_STRING
             }).then(function(res) {
-              if(res == "bobmarley"){
-                  localStorage.setItem('admin','true');
-                  window.location.replace("admin.html");
+              if(res){
+                  if(res == "halla"){
+                  
+                  
                   }
-              else{
+                  else{
                    $scope.showAlert();
                   }
+                  }
+              
             });
-          }};
+          };
           $scope.showAlert = function() {
             $ionicPopup.alert({
               title: 'Feil passord',
