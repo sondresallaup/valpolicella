@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/resources/html.js"></script>
+        <script src="/resources/strings.js"></script>
+        <script src="/resources/icons.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html; charset=UTF-8"><link href = "/css/ionic.css" rel = "stylesheet">
+    </head>
+    <body>
+
+<script>document.write(HTML_TITLE_DESIGN);</script>
+    <script>document.write(BACK_ICON);</script>
+  <h1 class="title"><script>document.write(REGISTER_STRING);</script></h1>
+</div><br><br><br><br><br><br>
+
+<! Register form >
+    <form method="POST" id="registerform">
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label"><script>document.write(USERNAME_STRING);</script></span>
+    <input type="text" id="username" name="username" placeholder="Opprett et brukernavn" autofocus>
+  </label>
+  <label class="item item-input">
+    <span class="input-label"><script>document.write(PASSWORD_STRING);</script></span>
+    <input type="password" id="password" name="password" placeholder="Opprett et passord">
+  </label>
+<label class="item item-input">
+    <span class="input-label"><script>document.write(REPEATPASSWORD_STRING);</script></span>
+    <input type="password" id="repeatPassword" name="repeatPassword" placeholder="Gjenta passordet">
+  </label>
+    <div id="registermsg"></div>
+    <button class="button button-block button-positive" id="submit">
+  <p id="okButton"><script>document.write(REGISTER_STRING);</script></p>
+    </button>
+</div>
+</form>
+
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>        
+<script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+    <script src="/js/sallaup/parse.js"></script>
+<script src="/js/sallaup/register.js"></script>
+</body>
+</html>

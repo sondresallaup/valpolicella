@@ -3,52 +3,42 @@
     <head>
         <script src="resources/html.js"></script>
         <script src="resources/strings.js"></script>
+        <script src="/resources/icons.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html; charset=UTF-8"><link href = "css/ionic.css" rel = "stylesheet">
     </head>
     <body>
 
 <script>document.write(HTML_TITLE_DESIGN);</script>
-    <a class="button button-icon icon ion-navicon" href="settings.html"></a>
   <h1 class="title"><script>document.write(APP_NAME);</script></h1>
 </div><br><br><br><br><br><br>
 
-<a href="main.html"><img src="img/FBloginbutton.png" width="200"></img></a>
+<! Login form >
+<form id="loginform">
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label"><script>document.write(USERNAME_STRING);</script></span>
+    <input type="text" id="username" placeholder="brukernavn">
+  </label>
+  <label class="item item-input">
+    <span class="input-label"><script>document.write(PASSWORD_STRING);</script></span>
+    <input type="password" id="password" placeholder="**********">
+  </label>
+    <button class="button button-block button-positive" id="submit"><p id="loginButton">
+  <script>document.write(LOGIN_STRING);</script></p>
+    </button>
+    <div id="card" class="card" style ="display:none"><div id="loginmsg" class="item item-text-wrap"></div></div>
+</div>
+</form>
 
-<button onclick="login()">Login</button>
-
-
-
-<!-- cordova -->
-<script src="phongap.js"></script>
-<!-- cordova facebook plugin -->
-<script src="cdv-plugin-fb-connect.js"></script>
-<!-- facebook js sdk -->
-<script src="facebook-js-sdk.js"></script>
-
+<div class="bar bar-footer bar-royal">
+  <div class="title"><a href="pages/register.html"><script>document.write(REGISTER_STRING);</script></a></div>
+</div>
 
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>        
 <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
-<script>
-function goBack()
-  {
-  window.history.back()
-  }
-    
-    
-function login() {
-                FB.login(
-                         function(response) {
-                         if (response.session) {
-                         alert('logged in');
-                         } else {
-                         alert('not logged in');
-                         }
-                         },
-                         { scope: "email" }
-                         );
-            }
-</script> 
+<script src="/js/sallaup/parse.js"></script>
+<script src="/js/sallaup/login.js"></script> 
         
 </body>
 </html>
