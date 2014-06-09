@@ -4,7 +4,7 @@ function checkCookie(){
 
 	var currentUser = Parse.User.current();
 	if(currentUser){
-		window.location = ('/pages/main.html');
+		window.location = ('pages/main.html');
 	}
 }
 

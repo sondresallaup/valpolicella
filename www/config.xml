@@ -14,7 +14,7 @@
     <author href="http://sondresallaup.com" email="support@sondresallaup.com">
         Den lille app-fabrikken
     </author>
-    <icon src="img/icon.png" />
+    <icon src="img/icon.jpeg" />
     
     <preference name="android-targetSdkVersion" value="12" />
     <preference name="orientation" value="portrait" />
