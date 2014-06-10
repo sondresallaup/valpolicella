@@ -6,6 +6,7 @@
 <script src="../js/sallaup/parse.js"></script>
         <script src="../resources/html.js"></script>
         <script src="../resources/strings.js"></script>
+        <script src="../resources/icons.js"></script>
 <script src="../js/sallaup/userfunctions.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html; charset=UTF-8"><link href = "../css/ionic.css" rel = "stylesheet">
     </head>
@@ -18,7 +19,7 @@
 <! Your turn-card >
 <script>document.write(HTML_CARD_HEADER);
 document.write(YOUR_TURN);
-document.write('</div><div class="item item-text-wrap" id="yourTurn">');
+document.write('</div><div class="item item-text-wrap" id="yourTurn">' + LOADING_ICON);
 printGameListYourTurn();
 document.write("</div></div>");  
 </script>
@@ -34,7 +35,7 @@ document.write("</div></div>");
 <! Waiting game-card >
 <script>document.write(HTML_CARD_HEADER);
 document.write(WAITING_GAME);
-document.write('</div><div class="item item-text-wrap" id="waitingTurn">');
+document.write('</div><div class="item item-text-wrap" id="waitingTurn">' + LOADING_ICON);
 printGameListWaitingTurn();
 document.write("</div></div>");  
 </script>

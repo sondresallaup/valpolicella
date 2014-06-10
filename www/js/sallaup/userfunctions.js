@@ -33,43 +33,79 @@ function startGameWithUser(usernameStr, scope){
 }
 
 function printGameListYourTurn(){
+    var yourTurnreturnStr = '';
     var Game = Parse.Object.extend("Game");   
-    var query = new Parse.Query(Game);
-    query.equalTo('user1', getCurrentUser());
-    query.equalTo('isUser1sTurn', true);
-    query.find({
+    var queryUser1 = new Parse.Query(Game);
+    queryUser1.equalTo('user1', getCurrentUser());
+    queryUser1.equalTo('isUser1sTurn', true);
+    queryUser1.find({
         success: function(games){
-            var returnStr = '';
             for(var i = 0; i < games.length; i++){
                 var game = games[i];
                 var usernameStr = "'" + game.get("user2") + "'";
-                returnStr += '<a href="#" onclick="openGame(' + usernameStr + ');">';
-                returnStr += game.get("user2")+"</a><br>";
+                var isUser1Str = "'" + 'true' + "'";
+                var isCurrentUserStr = "'" + 'true' + "'";
+                yourTurnreturnStr += '<a href="#" onclick="openGame(' + usernameStr + ', '+ isUser1Str  +', ' + isCurrentUserStr +');">';
+                yourTurnreturnStr += game.get("user2")+"</a><br>";
             } 
-            if(games.length == 0)
-                returnStr = NO_GAMES_STRING;
-            document.getElementById("yourTurn").innerHTML = returnStr;
+                document.getElementById("yourTurn").innerHTML = yourTurnreturnStr;
+    }
+    });
+    var queryUser2 = new Parse.Query(Game);
+    queryUser2.equalTo('user2', getCurrentUser());
+    queryUser2.equalTo('isUser1sTurn', false);
+    queryUser2.find({
+        success: function(games){
+            for(var i = 0; i < games.length; i++){
+                var game = games[i];
+                var usernameStr = "'" + game.get("user1") + "'";                
+                var isUser1Str = "'" + 'false' + "'";
+                var isCurrentUserStr = "'" + 'true' + "'";
+                yourTurnreturnStr += '<a href="#" onclick="openGame(' + usernameStr + ', '+ isUser1Str  +', ' + isCurrentUserStr +');">';
+                yourTurnreturnStr += game.get("user1")+"</a><br>";
+            }
+            if(yourTurnreturnStr == '')
+                yourTurnreturnStr = NO_GAMES_STRING;
+            document.getElementById("yourTurn").innerHTML = yourTurnreturnStr;
     }
     });
 }
 
 function printGameListWaitingTurn(){
+    var waitingTurnreturnStr = '';
     var Game = Parse.Object.extend("Game");   
-    var query = new Parse.Query(Game);
-    query.equalTo('user1', getCurrentUser());
-    query.equalTo('isUser1sTurn', false);
-    query.find({
+    var queryUser1 = new Parse.Query(Game);
+    queryUser1.equalTo('user1', getCurrentUser());
+    queryUser1.equalTo('isUser1sTurn', false);
+    queryUser1.find({
         success: function(games){
-            var returnStr = '';
             for(var i = 0; i < games.length; i++){
                 var game = games[i];
                 var usernameStr = "'" + game.get("user2") + "'";
-                returnStr += '<a href="#" onclick="openGame(' + usernameStr + ');">';
-                returnStr += game.get("user2")+"</a><br>";
+                var isUser1Str = "'" + 'true' + "'";
+                var isCurrentUserStr = "'" + 'false' + "'";
+                waitingTurnreturnStr += '<a href="#" onclick="openGame(' + usernameStr + ', '+ isUser1Str  +', ' + isCurrentUserStr +');">';
+                waitingTurnreturnStr += game.get("user2")+"</a><br>";
             }
-            if(games.length == 0)
-                returnStr = NO_GAMES_STRING;
-            document.getElementById("waitingTurn").innerHTML = returnStr;
+            document.getElementById("waitingTurn").innerHTML = waitingTurnreturnStr;
+    }
+    });
+    var queryUser2 = new Parse.Query(Game);
+    queryUser2.equalTo('user2', getCurrentUser());
+    queryUser2.equalTo('isUser1sTurn', true);
+    queryUser2.find({
+        success: function(games){
+            for(var i = 0; i < games.length; i++){
+                var game = games[i];
+                var usernameStr = "'" + game.get("user1") + "'";                
+                var isUser1Str = "'" + 'false' + "'";
+                var isCurrentUserStr = "'" + 'false' + "'";
+                waitingTurnreturnStr += '<a href="#" onclick="openGame(' + usernameStr + ', '+ isUser1Str  +', ' + isCurrentUserStr +');">';
+                waitingTurnreturnStr += game.get("user1")+"</a><br>";
+            } 
+            if(waitingTurnreturnStr == '')
+                waitingTurnreturnStr = NO_GAMES_STRING;
+            document.getElementById("waitingTurn").innerHTML = waitingTurnreturnStr;
     }
     });
 }

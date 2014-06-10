@@ -33,6 +33,9 @@ var SINCE = "2014";
 
 
 // GAME-string
+var YOUR_WORD_IS = 'Ditt ord er ';
+var WAITING_FOR_OPPONENT = 'Venter på motstander...';
+
 var YOUR_WORD_STRING = 'Finn på et ord motstanderen din skal gjette :)';
 var YOUR_WORD_INPUT = '<form id="yourWordForm"><label class="item item-input"><input type="text" id="yourWord" placeholder="Ditt ord"></label>';
 var YOUR_WORD_BUTTON_STRING = 'Send';
@@ -40,3 +43,7 @@ var YOUR_WORD_BUTTON = '<button class="button button-block button-positive" id="
 var YOUR_WORD_FILL_INPUT = 'Vennligst skriv inn et ord';
 var YOUR_WORD_MSG_DIV = '<div id="yourWordCard" class="card" style ="display:none"><div id="yourWordmsg"></div></div>';
 var YOUR_WORD_SUCCESSFULL = 'Ditt ord er sendt';
+
+var ASK_QUESTION_STRING = 'Still ja/nei-spørsmål:';
+var ASK_QUESTION_BUTTON_STRING = YOUR_WORD_BUTTON_STRING;
+var ASK_QUESTION_FILL_INPUT = 'Vennligst skriv et spørsmål';
