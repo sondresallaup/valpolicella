@@ -22,6 +22,7 @@ function createGame(opponent){
                 game.save({
                     success: function(game){
                         localStorage.setItem('opponent',game.get("user2"));
+                        localStorage.setItem('isCurrentUser', 'true ');
                         window.location = ('game.html');
                     },
                     error: function(error){
@@ -223,7 +224,7 @@ function increaseRoundNr(gameId){
 
 function printAnswerLog(){
     var user1, user2;
-    if(localStorage.getItem('isUser1')){
+    if(localStorage.getItem('isUser1') == "true"){
         user1 = getCurrentUser();
         user2 = localStorage.getItem('opponent');
     }
