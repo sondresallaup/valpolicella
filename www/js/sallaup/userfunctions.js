@@ -42,8 +42,12 @@ function printGameListYourTurn(){
             var returnStr = '';
             for(var i = 0; i < games.length; i++){
                 var game = games[i];
-                returnStr += game.get("user2")+"<br>";
+                var usernameStr = "'" + game.get("user2") + "'";
+                returnStr += '<a href="#" onclick="openGame(' + usernameStr + ');">';
+                returnStr += game.get("user2")+"</a><br>";
             } 
+            if(games.length == 0)
+                returnStr = NO_GAMES_STRING;
             document.getElementById("yourTurn").innerHTML = returnStr;
     }
     });
@@ -59,8 +63,12 @@ function printGameListWaitingTurn(){
             var returnStr = '';
             for(var i = 0; i < games.length; i++){
                 var game = games[i];
-                returnStr += game.get("user2")+"<br>";
-            } 
+                var usernameStr = "'" + game.get("user2") + "'";
+                returnStr += '<a href="#" onclick="openGame(' + usernameStr + ');">';
+                returnStr += game.get("user2")+"</a><br>";
+            }
+            if(games.length == 0)
+                returnStr = NO_GAMES_STRING;
             document.getElementById("waitingTurn").innerHTML = returnStr;
     }
     });
