@@ -60,25 +60,19 @@ angular.module('appfabrikken.valpolicella', ['ionic'])
             $ionicPopup.prompt({
               title: NEW_GAME,
               subTitle: USER_YOU_WANT_TO_PLAY_STRING,
-              inputType: 'password',
+              inputType: 'text',
               inputPlaceholder: USERNAME_STRING
             }).then(function(res) {
               if(res){
-                  if(res == "halla"){
-                  
-                  
-                  }
-                  else{
-                   $scope.showAlert();
-                  }
+                    startGameWithUser(res, $scope);
                   }
               
             });
           };
           $scope.showAlert = function() {
             $ionicPopup.alert({
-              title: 'Feil passord',
-              content: 'Feil passord, prøv igjen!'
+              title: 'Bruker eksisterer ikke',
+              content: 'Dette brukernavnet eksisterer ikke'
             }).then(function(res) {
               
             });
