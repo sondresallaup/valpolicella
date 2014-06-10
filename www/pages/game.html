@@ -33,6 +33,11 @@
             <button class="button button-block button-positive" id="askQuestionSubmit"><p id="askQuestionButton"> <script>document.write(ASK_QUESTION_BUTTON_STRING);</script> </p></button>  
         </form>
     </div>
+        <div id="answerDiv" style="visibility:hidden"><p id="questionFromUser"></p>
+    <div class="button-bar" >
+        <a class="button button-balanced" href="#" onclick="answer('true');"><script>document.write(YES_STRING);</script></a>
+        <a class="button button-assertive" href="#" onclick="answer('false');"><script>document.write(NO_STRING);</script></a>
+    </div></div>
 </div>
     
     

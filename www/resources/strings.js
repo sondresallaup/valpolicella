@@ -47,3 +47,6 @@ var YOUR_WORD_SUCCESSFULL = 'Ditt ord er sendt';
 var ASK_QUESTION_STRING = 'Still ja/nei-spørsmål:';
 var ASK_QUESTION_BUTTON_STRING = YOUR_WORD_BUTTON_STRING;
 var ASK_QUESTION_FILL_INPUT = 'Vennligst skriv et spørsmål';
+
+var YES_STRING = "JA";
+var NO_STRING = "NEI";

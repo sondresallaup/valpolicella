@@ -56,8 +56,23 @@ function startGame(){
                 if(game.get("word") == null){
                     document.getElementById('yourWordDiv').style.display = "block";
                 }
-                document.getElementById('currentWord').innerHTML = '<b><i>' + YOUR_WORD_IS + game.get("word") + '</i></b>';
-                //TODO: svare ja/nei
+                else{
+                    document.getElementById('currentWord').innerHTML = '<b><i>' + YOUR_WORD_IS + game.get("word") + '</i></b>';
+                    //svare ja/nei
+                    document.getElementById('answerDiv').style.visibility = "visible";
+                    var Question = Parse.Object.extend("Question");
+                    var questionQuery = new Parse.Query(Question);
+                    questionQuery.equalTo('game', game.id);
+                    questionQuery.descending('questionNr');
+                    questionQuery.first({
+                        success: function(question){
+                            document.getElementById('questionFromUser').innerHTML = question.get("question");
+                            localStorage.setItem('gameId', game.id);
+                        }
+                    });
+                    
+                    
+                }
             }
         });
 
@@ -65,7 +80,7 @@ function startGame(){
     else if(localStorage.getItem('isCurrentUser') == "true"){
         document.getElementById('askQuestionDiv').style.display = "block";
     }
-    else{
+    else if((localStorage.getItem('isCurrentUser') == "false") && (localStorage.getItem('isUser1') == "false")){
         document.getElementById('currentWord').innerHTML = WAITING_FOR_OPPONENT;
     }
     
@@ -128,7 +143,6 @@ $("button#askQuestionSubmit").click( function() {
 
         gameQuery.first({
             success: function(game){
-                alert(game.id);
                 var Question = Parse.Object.extend("Question");
                 var question = new Question();
                 question.set('game', game.id);
@@ -153,3 +167,48 @@ $("button#askQuestionSubmit").click( function() {
 	});
  
 });
+
+function answer(yesOrNo){
+    var answer;
+    if(yesOrNo == "true")
+        answer = true;
+    else
+        answer = false;
+    var Question = Parse.Object.extend("Question");
+    questionQuery = new Parse.Query(Question);
+    
+    questionQuery.equalTo('game',localStorage.getItem('gameId'));
+    questionQuery.descending('questionNr');
+    questionQuery.first({
+        success: function(question){
+            question.save(null, {
+                success: function(question){
+                    question.set('answer',answer);
+                    question.save();
+                    increaseRoundNr(localStorage.getItem('gameId'));
+                }
+            });
+            
+        },
+        error: function(error){
+            alert(error.description);   
+        }
+    });
+}
+
+function increaseRoundNr(gameId){
+    var Game = Parse.Object.extend('Game');
+    var gameQuery = new Parse.Query(Game);
+    gameQuery.equalTo('objectId',gameId);
+    gameQuery.first({
+        success: function(game){
+            game.save(null, {
+                success: function(updatedGame){
+                    updatedGame.set('currentRound', game.get('currentRound') +1);
+                    updatedGame.set('isUser1sTurn', false);
+                    updatedGame.save();
+             }
+            });   
+        }
+    });
+}
