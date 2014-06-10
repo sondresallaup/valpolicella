@@ -46,7 +46,11 @@ function startGame(){
     
     var gameQuery = new Parse.Query(Game);
     
-    if(localStorage.getItem('isUser1') == "true"){
+    if(localStorage.getItem('isCurrentUser') == "false"){
+        document.getElementById('currentWord').innerHTML = WAITING_FOR_OPPONENT;
+    }
+    
+    else if(localStorage.getItem('isUser1') == "true"){
         gameQuery.equalTo('user1', getCurrentUser());
         gameQuery.equalTo('user2', localStorage.getItem('opponent'));
 
@@ -154,6 +158,8 @@ $("button#askQuestionSubmit").click( function() {
                     success: function(updatedGame){
                         updatedGame.set('isUser1sTurn', true);
                         updatedGame.save();
+                        document.getElementById('askQuestionDiv').style.display = "none";
+                        $("div#gameBoard").html('<font color="red">' + ASK_QUESTION_SUCCESSFULL);
                     }
                 });
             }
@@ -186,6 +192,8 @@ function answer(yesOrNo){
                     question.set('answer',answer);
                     question.save();
                     increaseRoundNr(localStorage.getItem('gameId'));
+                    document.getElementById('answerDiv').style.visibility = "hidden";
+                    $("div#gameBoard").html('<font color="red">' + ANSWER_SUCCESSFULL);
                 }
             });
             
@@ -210,5 +218,39 @@ function increaseRoundNr(gameId){
              }
             });   
         }
+    });
+}
+
+function printAnswerLog(){
+    var user1, user2;
+    if(localStorage.getItem('isUser1')){
+        user1 = getCurrentUser();
+        user2 = localStorage.getItem('opponent');
+    }
+    else{
+        user1 = localStorage.getItem('opponent');
+        user2 = getCurrentUser();
+    }
+    var Game = Parse.Object.extend('Game');
+    var gameQuery = new Parse.Query(Game);
+    gameQuery.equalTo('user1',user1);
+    gameQuery.equalTo('user2',user2);
+    gameQuery.first({
+        success: function(game){
+            var Question = Parse.Object.extend('Question');
+            var questionQuery = new Parse.Query(Question);
+            var answerlogStr = '';
+            questionQuery.equalTo('game',game.id);
+            questionQuery.descending('questionNr');
+            questionQuery.find({
+                success: function(questions){
+                    for(var i = 0; i < questions.length; i++){
+                         answerlogStr += questions[i].get('questionNr')+ '. ' + questions[i].get('question') + ': ' + questions[i].get('answer')+'<br>';  
+                    }
+                    $("div#answerlog").html(answerlogStr);
+                }
+            });
+        }
+        
     });
 }
