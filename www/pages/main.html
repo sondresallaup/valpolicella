@@ -11,6 +11,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" content="text/html; charset=UTF-8"><link href = "../css/ionic.css" rel = "stylesheet">
     </head>
     <body ng-controller="PopupCtrl">
+        
+        <ion-content>
+      <ion-refresher on-refresh="doRefresh()"
+                     pulling-text="Dra ned for å oppdatere..."
+                     refreshing-text="Oppdaterer!"
+                     refreshing-icon="ion-loading-c">
+                     
+      </ion-refresher>
+        <ion-list>
 
 <script>document.write(HTML_TITLE_DESIGN);</script>
     <a class="button button-icon icon ion-navicon" href="settings.html"></a>
@@ -46,6 +55,6 @@ document.write("</div></div>");
 <script src="../js/ionic.bundle.js"></script>
 <script src="../js/prompt.js"></script>
 <script src="../js/sallaup/game.js"></script>
-        
+  </ion-content>      
 </body>
 </html>

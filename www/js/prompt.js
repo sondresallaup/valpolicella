@@ -1,6 +1,19 @@
 angular.module('appfabrikken.valpolicella', ['ionic'])
 
       .controller('PopupCtrl', function($scope, $timeout, $q, $ionicPopup) {
+          $scope.doRefresh = function() {
+                $timeout( function() {
+
+                reload();
+
+                //Stop the ion-refresher from spinning
+                $scope.$broadcast('scroll.refreshComplete');
+
+                }, 1000);
+
+            };
+
+          
           $scope.showPopup = function() {
             $scope.data = {}
 
