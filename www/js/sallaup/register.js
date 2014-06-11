@@ -9,7 +9,7 @@ $("button#submit").click( function() {
 	else{
 
 		if($("#password").val() == $("#repeatPassword").val()){
-			if($("#password").val() > 5){
+			if($("#password").val().length > 5){
 
 			var user = new Parse.User();
 			user.set("username", $("#username").val());

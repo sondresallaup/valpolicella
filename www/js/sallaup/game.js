@@ -22,7 +22,8 @@ function createGame(opponent){
                 game.save({
                     success: function(game){
                         localStorage.setItem('opponent',game.get("user2"));
-                        localStorage.setItem('isCurrentUser', 'true ');
+                        localStorage.setItem('isCurrentUser', 'true');
+                        localStorage.setItem('isUser1', 'true');
                         window.location = ('game.html');
                     },
                     error: function(error){
@@ -83,6 +84,7 @@ function startGame(){
 
     }
     else if(localStorage.getItem('isCurrentUser') == "true"){
+        document.getElementById('askQuestion').placeholder = PLACEHOLDER_EXAMPLE_QUESTIONS[Math.floor((Math.random() * PLACEHOLDER_EXAMPLE_QUESTIONS.length))];
         document.getElementById('askQuestionDiv').style.display = "block";
     }
     else if((localStorage.getItem('isCurrentUser') == "false") && (localStorage.getItem('isUser1') == "false")){

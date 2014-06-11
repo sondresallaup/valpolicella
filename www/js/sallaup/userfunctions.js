@@ -65,8 +65,9 @@ function printGameListYourTurn(){
                 yourTurnreturnStr += game.get("user1")+"</a><br>";
             }
             if(yourTurnreturnStr == '')
-                yourTurnreturnStr = NO_GAMES_STRING;
-            document.getElementById("yourTurn").innerHTML = yourTurnreturnStr;
+                document.getElementById("yourTurn").innerHTML = NO_GAMES_STRING;
+            else
+                document.getElementById("yourTurn").innerHTML = yourTurnreturnStr;
     }
     });
 }
@@ -104,8 +105,9 @@ function printGameListWaitingTurn(){
                 waitingTurnreturnStr += game.get("user1")+"</a><br>";
             } 
             if(waitingTurnreturnStr == '')
-                waitingTurnreturnStr = NO_GAMES_STRING;
-            document.getElementById("waitingTurn").innerHTML = waitingTurnreturnStr;
+                document.getElementById("waitingTurn").innerHTML = NO_GAMES_STRING;
+            else
+                document.getElementById("waitingTurn").innerHTML = waitingTurnreturnStr;
     }
     });
 }

@@ -52,3 +52,5 @@ var ASK_QUESTION_SUCCESSFULL = 'Ditt spørsmål er sendt';
 var YES_STRING = "JA";
 var NO_STRING = "NEI";
 var ANSWER_SUCCESSFULL = 'Ditt svar er sendt';
+
+var PLACEHOLDER_EXAMPLE_QUESTIONS = ['Er det større enn en fyrstikkeske?', 'Er det mindre enn en sykkelveske?', 'Kan det røres?', 'Kan det høres?', 'Kan det ha en form for tilknytning til hagestell?', 'Er det noe vi har bruk for daglig?', 'Er det noe vi syns er ubehagelig?', 'Kan det sages?', 'Kan det gnages?', 'Er det rett og slett en ting som man kan lage selv?'];
