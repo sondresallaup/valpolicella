@@ -52,30 +52,40 @@ function startGame(){
         document.getElementById('currentWord').innerHTML = WAITING_FOR_OPPONENT;
     }
     
-    else if(localStorage.getItem('isUser1') == "true"){
+    else {
+    if(localStorage.getItem('isUser1') == "true"){
         gameQuery.equalTo('user1', getCurrentUser());
         gameQuery.equalTo('user2', localStorage.getItem('opponent'));
-
+    }
+    else if(localStorage.getItem('isUser1') == "false"){
+        gameQuery.equalTo('user2', getCurrentUser());
+        gameQuery.equalTo('user1', localStorage.getItem('opponent'));
+    }
         gameQuery.first({
             success: function(game){
                 //check if a word is created
-                if(game.get("word") == null){
+                if((game.get("word") == null) && (localStorage.getItem('isUser1') == "true")){
                     document.getElementById('yourWordDiv').style.display = "block";
                 }
                 else{
-                    document.getElementById('currentWord').innerHTML = '<b><i>' + YOUR_WORD_IS + game.get("word") + '</i></b>';
-                    //svare ja/nei
-                    document.getElementById('answerDiv').style.visibility = "visible";
-                    var Question = Parse.Object.extend("Question");
-                    var questionQuery = new Parse.Query(Question);
-                    questionQuery.equalTo('game', game.id);
-                    questionQuery.descending('questionNr');
-                    questionQuery.first({
-                        success: function(question){
-                            document.getElementById('questionFromUser').innerHTML = question.get("question");
-                            localStorage.setItem('gameId', game.id);
-                        }
-                    });
+                    if(localStorage.getItem('isUser1') == "true"){
+                        document.getElementById('currentWord').innerHTML = '<b><i>' + YOUR_WORD_IS + game.get("word") + '</i></b>';
+                        //svare ja/nei
+                        document.getElementById('answerDiv').style.visibility = "visible";
+                        var Question = Parse.Object.extend("Question");
+                        var questionQuery = new Parse.Query(Question);
+                        questionQuery.equalTo('game', game.id);
+                        questionQuery.descending('questionNr');
+                        questionQuery.first({
+                            success: function(question){
+                                document.getElementById('questionFromUser').innerHTML = question.get("question");
+                                localStorage.setItem('gameId', game.id);
+                            }
+                        });
+                    }
+                    else{
+                          document.getElementById('currentWord').innerHTML = '<b><i>' + YOUR_WORD_IS_IN + YOUR_WORD_KINGDOM[game.get("kingdom")] + ', ' + YOUR_WORD_CONCRETENESS[game.get("concreteness")] + NUMBER_WORDS_STRING + (game.get('numberWords')+1) + WORDS_STRING + '</i></b>'; 
+                    }
                     
                     
                 }
@@ -83,7 +93,7 @@ function startGame(){
         });
 
     }
-    else if(localStorage.getItem('isCurrentUser') == "true"){
+    if((localStorage.getItem('isCurrentUser') == "true") && (localStorage.getItem('isUser1') == "false")){
         document.getElementById('askQuestion').placeholder = PLACEHOLDER_EXAMPLE_QUESTIONS[Math.floor((Math.random() * PLACEHOLDER_EXAMPLE_QUESTIONS.length))];
         document.getElementById('askQuestionDiv').style.display = "block";
     }
@@ -116,6 +126,10 @@ $("button#yourWordSubmit").click( function() {
                         game.set('word',$("#yourWord").val());
                         game.set('isUser1sTurn',false);
                         game.set('currentRound',1);
+                        //selects
+                        game.set('kingdom',document.getElementById('kingdom').selectedIndex);
+                        game.set('concreteness',document.getElementById('concreteness').selectedIndex);
+                        game.set('numberWords',document.getElementById('numberWords').selectedIndex);
                         game.save();
                         document.getElementById('yourWordDiv').style.display = "none";
                         $("div#gameBoard").html('<font color="red">' + YOUR_WORD_SUCCESSFULL);

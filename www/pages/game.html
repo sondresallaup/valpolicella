@@ -21,8 +21,8 @@
         <form id="yourWordForm">
             <script>document.write(YOUR_WORD_STRING);</script>
             <label class="item item-input"><input type="text" id="yourWord" placeholder="Ditt ord"></label>
-            <select><option><script>document.write(YOUR_WORD_KINGDOM[0]);</script></option><option><script>document.write(YOUR_WORD_KINGDOM[1]);</script></option><option><script>document.write(YOUR_WORD_KINGDOM[2]);</script></select>
-            <select><option><script>document.write(YOUR_WORD_CONCRETENESS[0]);</script></option><option><script>document.write(YOUR_WORD_CONCRETENESS[1]);</script></option><option><script>document.write(YOUR_WORD_CONCRETENESS[2]);</script></select>
+            <select id="kingdom"><option value="0"><script>document.write(YOUR_WORD_KINGDOM[0]);</script></option><option value="1"><script>document.write(YOUR_WORD_KINGDOM[1]);</script></option><option value="2"><script>document.write(YOUR_WORD_KINGDOM[2]);</script></select>
+            <select id="concreteness"><option value="0"><script>document.write(YOUR_WORD_CONCRETENESS[0]);</script></option><option value="1"><script>document.write(YOUR_WORD_CONCRETENESS[1]);</script></option><option value="2"><script>document.write(YOUR_WORD_CONCRETENESS[2]);</script></select>Ett ord, sammensatt av <select id="numberWords"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>ord
             <div id="yourWordCard" class="card" style ="display:none"><div id="yourWordmsg"></div></div>
             <button class="button button-block button-positive" id="yourWordSubmit"><p id="yourWordButton"> <script>document.write(YOUR_WORD_BUTTON_STRING);</script> </p></button>
         </form>

@@ -33,7 +33,10 @@ var SINCE = "2014";
 
 
 // GAME-string
-var YOUR_WORD_IS = 'Ditt ord er ';
+var YOUR_WORD_IS = 'Ordet er ';
+var YOUR_WORD_IS_IN = YOUR_WORD_IS + 'i ';
+var NUMBER_WORDS_STRING = ' og består av ';
+var WORDS_STRING = ' ord';
 var WAITING_FOR_OPPONENT = 'Venter på motstander...';
 
 var YOUR_WORD_STRING = 'Finn på et ord motstanderen din skal gjette :)';
@@ -44,8 +47,8 @@ var YOUR_WORD_FILL_INPUT = 'Vennligst skriv inn et ord';
 var YOUR_WORD_MSG_DIV = '<div id="yourWordCard" class="card" style ="display:none"><div id="yourWordmsg"></div></div>';
 var YOUR_WORD_SUCCESSFULL = 'Ditt ord er sendt';
 
-var YOUR_WORD_KINGDOM = ['Dyreriket', 'Planteriket', 'Mineralriket', 'Diverse'];
-var YOUR_WORD_CONCRETENESS = ['Konkret', 'Abstrakt', 'Både og'];
+var YOUR_WORD_KINGDOM = ['dyreriket', 'planteriket', 'mineralriket', 'diverse'];
+var YOUR_WORD_CONCRETENESS = ['konkret', 'abstrakt', 'både og'];
 
 var ASK_QUESTION_STRING = 'Still ja/nei-spørsmål:';
 var ASK_QUESTION_BUTTON_STRING = YOUR_WORD_BUTTON_STRING;
