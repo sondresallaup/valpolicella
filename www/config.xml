@@ -25,6 +25,8 @@
     
     <feature name="http://api.phonegap.com/1.0/camera"/>
     
+    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.1.1" />
+    
     <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.4.0">
         <param name="APP_ID" value="232837086927657" />
         <param name="APP_NAME" value="20 spørsmål" />

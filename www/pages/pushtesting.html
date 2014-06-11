@@ -10,20 +10,45 @@
 
 <script>document.write(HTML_TITLE_DESIGN);</script>
     <script>document.write(BACK_ICON);</script>
-  <h1 class="title"><script>document.write(SETTINGS);</script></h1>
+  <h1 class="title">Pushtesting</h1>
 </div><br><br>
-<ul class="list">
-    <li class="item"><script>document.write(APP_CREATED_BY + " (c) " + SINCE);</script></li>
-    <li class="item"><a href="pushtesting.html">Pushtesting</a></li>
-</ul><br><br><br><br>
+
+<script>
+var pushNotification;
+pushNotification = window.plugins.pushNotification;
+
+if ( device.platform == 'android' || device.platform == 'Android' )
+{
+    pushNotification.register(
+        successHandler,
+        errorHandler, {
+            "senderID":"427148080701",
+            "ecb":"onNotificationGCM"
+        });
+}
+else
+{
+    pushNotification.register(
+        tokenHandler,
+        errorHandler, {
+            "badge":"true",
+            "sound":"true",
+            "alert":"true",
+            "ecb":"onNotificationAPN"
+        });
+}
     
-<a class="button button-block button-assertive" href="logout.html"><script>document.write(LOG_OUT_STRING);</script></a>
+    
+    
+</script>
+    
     
     
 <script src="http://code.jquery.com/jquery-latest.js"></script>        
 <script src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
 <script src="../js/sallaup/parse.js"></script>
 <script src="../js/sallaup/userfunctions.js"></script>
+<script type="text/javascript" src="../phonegap.js"></script>
         
 </body>
 </html>
